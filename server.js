@@ -10,7 +10,11 @@ const publicDir = path.join(__dirname, 'public');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.'))
 
+app.get('/', (req, res) => {
+ res.sendFile(path.join(__dirname, 'index.html'))
+})
 const openai = process.env.OPENAI_API_KEY
   ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   : null;
@@ -73,3 +77,4 @@ app.listen(PORT, () => {
     console.warn('Warning: OPENAI_API_KEY not set. Set it in .env to use /api/polish.');
   }
 });
+
