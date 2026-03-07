@@ -7,10 +7,14 @@ const OpenAI = require('openai').default;
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// 中转API客户端
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: "https://pro.gemai.cc/v1"
+});
+
 app.use(cors());
 app.use(express.json());
-
-// 静态托管当前目录
 app.use(express.static(__dirname));
 
 // 首页返回 index.html
@@ -18,57 +22,48 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-const openai = process.env.OPENAI_API_KEY
-  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-  : null;
-
+// AI论文润色接口
 app.post('/api/polish', async (req, res) => {
   try {
     const { text } = req.body;
 
-    if (text === undefined || text === null) {
-      return res.status(400).json({ error: 'Missing field: text' });
-    }
-
-    const input = typeof text === 'string' ? text : String(text);
-
-    if (!input.trim()) {
-      return res.status(400).json({ error: 'text cannot be empty' });
-    }
-
-    if (!openai) {
-      return res.status(500).json({
-        error: 'OPENAI_API_KEY is not set. Add it to environment variables.',
+    if (!text || !text.trim()) {
+      return res.status(400).json({
+        error: "请输入需要润色的内容"
       });
     }
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
+      model: "claude-opus-4-6",
       messages: [
         {
-          role: 'system',
-          content:
-            'You are an academic writing assistant. Polish the given English text to improve clarity, grammar, and academic tone. Preserve the original meaning. Output only the polished text, no explanations.',
+          role: "system",
+          content: "You are an academic writing assistant. Improve grammar, clarity and academic tone. Output only the polished text."
         },
-        { role: 'user', content: input },
+        {
+          role: "user",
+          content: text
+        }
       ],
-      temperature: 0.3,
+      temperature: 0.3
     });
 
-    const polished = completion.choices[0]?.message?.content?.trim() || '';
+    const result = completion.choices[0]?.message?.content || "";
 
-    res.json({ polished });
-  } catch (err) {
-    console.error('[/api/polish]', err.message || err);
+    res.json({
+      polished: result
+    });
+
+  } catch (error) {
+    console.error("AI error:", error);
+
     res.status(500).json({
-      error: err.message || 'Polish request failed',
+      error: "AI调用失败"
     });
   }
 });
 
+// 启动服务器
 app.listen(PORT, () => {
-  console.log(`Polish server running at http://localhost:${PORT}`);
-  if (!process.env.OPENAI_API_KEY) {
-    console.warn('Warning: OPENAI_API_KEY not set.');
-  }
+  console.log(`Server running at http://localhost:${PORT}`);
 });
