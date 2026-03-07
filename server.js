@@ -1,10 +1,12 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const OpenAI = require('openai').default;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const publicDir = path.join(__dirname, 'public');
 
 app.use(cors());
 app.use(express.json());
@@ -56,6 +58,14 @@ app.post('/api/polish', async (req, res) => {
     });
   }
 });
+
+// 根路径返回 index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicDir, 'index.html'));
+});
+
+// 静态托管 public 目录
+app.use(express.static(publicDir));
 
 app.listen(PORT, () => {
   console.log(`Polish server running at http://localhost:${PORT}`);
