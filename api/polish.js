@@ -14,8 +14,6 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-        // 如果你的接口需要密钥，就取消下面这行注释
-        // ,"Authorization": "Bearer 你的API_KEY"
       },
       body: JSON.stringify({
         model: "claude-3-opus-20240229",
