@@ -6,15 +6,18 @@ const OpenAI = require('openai').default;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const publicDir = path.join(__dirname, 'public');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.'))
 
+// 静态托管当前目录
+app.use(express.static(__dirname));
+
+// 首页返回 index.html
 app.get('/', (req, res) => {
- res.sendFile(path.join(__dirname, 'index.html'))
-})
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 const openai = process.env.OPENAI_API_KEY
   ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   : null;
@@ -35,7 +38,7 @@ app.post('/api/polish', async (req, res) => {
 
     if (!openai) {
       return res.status(500).json({
-        error: 'OPENAI_API_KEY is not set. Add it to .env and restart.',
+        error: 'OPENAI_API_KEY is not set. Add it to environment variables.',
       });
     }
 
@@ -63,18 +66,9 @@ app.post('/api/polish', async (req, res) => {
   }
 });
 
-// 根路径返回 index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
-});
-
-// 静态托管 public 目录
-app.use(express.static(publicDir));
-
 app.listen(PORT, () => {
   console.log(`Polish server running at http://localhost:${PORT}`);
   if (!process.env.OPENAI_API_KEY) {
-    console.warn('Warning: OPENAI_API_KEY not set. Set it in .env to use /api/polish.');
+    console.warn('Warning: OPENAI_API_KEY not set.');
   }
 });
-
