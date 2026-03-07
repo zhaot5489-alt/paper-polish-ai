@@ -1,69 +1,53 @@
-require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const cors = require('cors');
-const OpenAI = require('openai').default;
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// 中转API客户端
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  baseURL: "https://pro.gemai.cc/v1"
-});
-
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
 
-// 首页返回 index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+const API_URL = "http://1.95.142.151:3000/v1/chat/completions";
 
-// AI论文润色接口
-app.post('/api/polish', async (req, res) => {
+app.post("/api/polish", async (req, res) => {
   try {
     const { text } = req.body;
 
-    if (!text || !text.trim()) {
-      return res.status(400).json({
-        error: "请输入需要润色的内容"
-      });
-    }
-
-    const completion = await openai.chat.completions.create({
-      model: "claude-opus-4-6",
-      messages: [
-        {
-          role: "system",
-          content: "You are an academic writing assistant. Improve grammar, clarity and academic tone. Output only the polished text."
-        },
-        {
-          role: "user",
-          content: text
-        }
-      ],
-      temperature: 0.3
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "claude-3-opus-20240229",
+        messages: [
+          {
+            role: "system",
+            content: "You are an expert academic editor. Polish the following academic text to improve clarity, grammar, and scientific tone."
+          },
+          {
+            role: "user",
+            content: text
+          }
+        ],
+        temperature: 0.3
+      })
     });
 
-    const result = completion.choices[0]?.message?.content || "";
+    const data = await response.json();
 
     res.json({
-      polished: result
+      result: data.choices?.[0]?.message?.content || "No response"
     });
 
   } catch (error) {
-    console.error("AI error:", error);
-
-    res.status(500).json({
-      error: "AI调用失败"
-    });
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 });
 
-// 启动服务器
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.listen(3001, () => {
+  console.log("Server running on port 3001");
 });
