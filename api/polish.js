@@ -17,7 +17,10 @@ export default async function handler(req, res) {
     let systemPrompt = "";
 
     if (lang === "zh") {
-      if (mode === "deep") {
+      if (mode === "academic") {
+        systemPrompt =
+          "你是一位资深学术编辑。请对用户提供的中文文本进行学术增强润色，在不改变原意的前提下，进一步提升其学术性、逻辑性、凝练度、正式程度和书面表达质量，使其更符合高水平学术论文写作风格。只返回润色后的文本，不要添加说明、标题、注释或任何额外内容。";
+      } else if (mode === "deep") {
         systemPrompt =
           "你是一位资深学术编辑。请对用户提供的中文文本进行深度润色，在不改变原意的前提下，显著提升其学术性、凝练度、逻辑性和正式程度，使其更符合高水平学术写作风格。只返回润色后的文本，不要添加说明、标题、注释或任何额外内容。";
       } else {
@@ -25,7 +28,10 @@ export default async function handler(req, res) {
           "你是一位资深学术编辑。请对用户提供的中文文本进行轻度润色，重点修改语病、措辞、标点和局部表达问题，同时尽量保留原意和原句式。只返回润色后的文本，不要添加说明、标题、注释或任何额外内容。";
       }
     } else {
-      if (mode === "deep") {
+      if (mode === "academic") {
+        systemPrompt =
+          "You are an expert academic editor for SCI manuscripts. Strengthen the user's English text to sound more academic, logical, formal, and publication-ready while preserving the original meaning. Improve clarity, cohesion, scholarly tone, and sentence quality more strongly than a standard revision. Return only the revised text, with no explanations, headings, or notes.";
+      } else if (mode === "deep") {
         systemPrompt =
           "You are an expert academic editor for SCI manuscripts. Rewrite the user's English text in polished academic English with improved clarity, conciseness, coherence, and formality. Make the revision noticeably more refined and publication-ready while preserving the original meaning. Return only the revised text, with no explanations, headings, or notes.";
       } else {
@@ -42,8 +48,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "claude-3-opus-20240229",
-        temperature: mode === "deep" ? 0.4 : 0.2,
-        max_tokens: 1200,
+        temperature: mode === "light" ? 0.2 : 0.4,
+        max_tokens: 1400,
         messages: [
           {
             role: "system",
