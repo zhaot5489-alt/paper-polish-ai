@@ -3,142 +3,172 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>学术文本润色</title>
+  <title>润思 - 学术文本润色</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-[#f7f7fb] text-slate-800 font-sans">
-  <div class="max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-10">
-    <header class="mb-8">
-      <div class="flex items-center gap-3 mb-2">
-        <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg font-bold shadow-sm">
-          A
+<body class="min-h-screen bg-[#f5f7fb] text-slate-800 font-sans">
+  <div class="min-h-screen flex flex-col">
+    <!-- 顶部导航 -->
+    <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+            润
+          </div>
+          <div>
+            <h1 class="text-lg font-semibold text-slate-900 leading-none">润思</h1>
+            <p class="text-xs text-slate-500 mt-1">学术文本润色工具</p>
+          </div>
         </div>
-        <div>
-          <h1 class="text-2xl md:text-3xl font-semibold text-slate-900">学术文本润色</h1>
-          <p class="text-sm text-slate-500 mt-1">适用于论文、摘要、回复审稿人等学术写作场景</p>
+
+        <div class="hidden md:flex items-center gap-3 text-sm text-slate-500">
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">论文润色</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">摘要优化</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">回复审稿人</span>
         </div>
       </div>
     </header>
 
-    <main class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <!-- 左侧输入区 -->
-      <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="px-5 py-4 border-b border-slate-200 bg-white">
-          <div class="flex items-center justify-between gap-3">
-            <div>
-              <h2 class="text-base font-semibold text-slate-900">原文</h2>
-              <p class="text-sm text-slate-500 mt-1">输入你需要润色的英文文本</p>
-            </div>
-            <div id="char-count" class="text-xs text-slate-500">0 / 3000</div>
-          </div>
-        </div>
-
-        <div class="p-5">
-          <textarea
-            id="input-text"
-            rows="16"
-            placeholder="请输入或粘贴需要润色的英文内容..."
-            class="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-4 text-[15px] leading-7 text-slate-800 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
-          ></textarea>
-
-          <div class="mt-4">
-            <div class="text-sm font-medium text-slate-700 mb-3">润色模式</div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <label class="group cursor-pointer">
-                <div class="rounded-xl border border-slate-200 p-4 hover:border-blue-300 hover:bg-blue-50/40 transition">
-                  <div class="flex items-start gap-3">
-                    <input type="radio" name="mode" value="light" checked class="mt-1 accent-blue-600">
-                    <div>
-                      <div class="font-medium text-slate-900">轻度润色</div>
-                      <div class="text-sm text-slate-500 mt-1 leading-6">
-                        尽量保留原意和原句式，主要修正语法、用词、标点和细小表达问题。
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </label>
-
-              <label class="group cursor-pointer">
-                <div class="rounded-xl border border-slate-200 p-4 hover:border-blue-300 hover:bg-blue-50/40 transition">
-                  <div class="flex items-start gap-3">
-                    <input type="radio" name="mode" value="deep" class="mt-1 accent-blue-600">
-                    <div>
-                      <div class="font-medium text-slate-900">深度润色</div>
-                      <div class="text-sm text-slate-500 mt-1 leading-6">
-                        在不改变原意的前提下，显著提升学术性、凝练度和 SCI 风格。
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </label>
-            </div>
-
-            <p id="limit-tip" class="mt-3 text-xs text-slate-500">
-              最多支持 3000 个字符。
+    <!-- 主体 -->
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-6 md:py-8">
+      <!-- 顶部工具条 -->
+      <div class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-sm px-4 py-4 md:px-5">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">润思 · Academic Polish</h2>
+            <p class="text-sm text-slate-500 mt-1">
+              适用于 SCI 论文、英文摘要、学术段落和审稿回复的英文润色。
             </p>
           </div>
 
-          <div class="mt-5 flex flex-wrap gap-3">
-            <button
-              id="polish-btn"
-              class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100 disabled:opacity-60 disabled:cursor-not-allowed transition"
-            >
-              开始润色
-            </button>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex items-center rounded-xl border border-slate-200 bg-slate-50 p-1">
+              <button
+                id="mode-light"
+                type="button"
+                class="mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200"
+                data-mode="light"
+              >
+                轻度润色
+              </button>
+              <button
+                id="mode-deep"
+                type="button"
+                class="mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600"
+                data-mode="deep"
+              >
+                深度润色
+              </button>
+            </div>
 
-            <button
-              id="clear-btn"
-              class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
-            >
-              清空内容
-            </button>
+            <div class="text-sm text-slate-500">
+              <span id="char-count">0 / 3000</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- 右侧结果区 -->
-      <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="px-5 py-4 border-b border-slate-200 bg-white">
-          <div class="flex items-center justify-between gap-3">
+      <!-- 双栏 -->
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <!-- 左侧输入 -->
+        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
-              <h2 class="text-base font-semibold text-slate-900">润色结果</h2>
-              <p class="text-sm text-slate-500 mt-1">系统将返回优化后的英文表达</p>
+              <div class="text-sm font-semibold text-slate-900">原文</div>
+              <div class="text-xs text-slate-500 mt-0.5">请输入或粘贴需要润色的英文内容</div>
+            </div>
+            <div class="text-xs text-slate-500">输入区</div>
+          </div>
+
+          <div class="p-5">
+            <textarea
+              id="input-text"
+              rows="18"
+              placeholder="在此输入英文文本..."
+              class="w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-4 text-[15px] leading-7 text-slate-800 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+            ></textarea>
+
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <p id="mode-desc" class="text-sm text-slate-600">
+                  当前为轻度润色：尽量保留原意和原句式，主要优化语法、用词和细节表达。
+                </p>
+                <p id="limit-tip" class="text-xs text-slate-500 mt-1">
+                  最多支持 3000 个字符。
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                <button
+                  id="clear-btn"
+                  class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
+                >
+                  清空
+                </button>
+                <button
+                  id="polish-btn"
+                  class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                >
+                  开始润色
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 右侧输出 -->
+        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
+            <div>
+              <div class="text-sm font-semibold text-slate-900">润色结果</div>
+              <div class="text-xs text-slate-500 mt-0.5">输出优化后的学术英文</div>
             </div>
             <div id="status-text" class="text-xs text-slate-500">就绪</div>
           </div>
-        </div>
 
-        <div class="p-5 flex flex-col min-h-[580px]">
-          <div
-            id="result-text"
-            class="flex-1 rounded-xl border border-slate-200 bg-[#fafbff] px-4 py-4 text-[15px] leading-7 text-slate-800 whitespace-pre-wrap"
-          ></div>
+          <div class="p-5 flex flex-col min-h-[560px]">
+            <div
+              id="result-text"
+              class="flex-1 rounded-2xl border border-slate-200 bg-[#f8faff] px-4 py-4 text-[15px] leading-7 text-slate-800 whitespace-pre-wrap"
+            ></div>
 
-          <div class="mt-5 flex flex-wrap gap-3">
-            <button
-              id="copy-btn"
-              class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
-            >
-              复制结果
-            </button>
+            <div class="mt-4 flex flex-wrap gap-3 justify-end">
+              <button
+                id="copy-btn"
+                class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
+              >
+                复制结果
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
+
+    <!-- 底部 -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
+        <div>润思 · 面向科研写作的英文润色工具</div>
+        <div>支持轻度润色与深度润色两种模式</div>
+      </div>
+    </footer>
   </div>
 
   <script>
     const inputEl = document.getElementById("input-text");
+    const resultEl = document.getElementById("result-text");
     const charCountEl = document.getElementById("char-count");
     const limitTipEl = document.getElementById("limit-tip");
+    const statusTextEl = document.getElementById("status-text");
     const polishBtn = document.getElementById("polish-btn");
     const clearBtn = document.getElementById("clear-btn");
     const copyBtn = document.getElementById("copy-btn");
-    const resultEl = document.getElementById("result-text");
-    const statusTextEl = document.getElementById("status-text");
+    const modeDescEl = document.getElementById("mode-desc");
+    const modeLightBtn = document.getElementById("mode-light");
+    const modeDeepBtn = document.getElementById("mode-deep");
 
     const MAX_CHARS = 3000;
+    let currentMode = "light";
 
     function updateCharCount() {
       const length = inputEl.value.length;
@@ -159,12 +189,27 @@
       }
     }
 
+    function setMode(mode) {
+      currentMode = mode;
+
+      if (mode === "deep") {
+        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
+        modeLightBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600";
+        modeDescEl.textContent = "当前为深度润色：在不改变原意的前提下，显著提升学术性、凝练度和 SCI 风格。";
+      } else {
+        modeLightBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
+        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600";
+        modeDescEl.textContent = "当前为轻度润色：尽量保留原意和原句式，主要优化语法、用词和细节表达。";
+      }
+    }
+
     inputEl.addEventListener("input", updateCharCount);
-    updateCharCount();
+
+    modeLightBtn.addEventListener("click", () => setMode("light"));
+    modeDeepBtn.addEventListener("click", () => setMode("deep"));
 
     polishBtn.addEventListener("click", async function () {
       const text = inputEl.value.trim();
-      const mode = document.querySelector('input[name="mode"]:checked').value;
 
       resultEl.classList.remove("text-red-600");
 
@@ -192,7 +237,10 @@
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ text, mode })
+          body: JSON.stringify({
+            text,
+            mode: currentMode
+          })
         });
 
         const data = await response.json();
@@ -218,8 +266,8 @@
     clearBtn.addEventListener("click", function () {
       inputEl.value = "";
       resultEl.textContent = "";
-      statusTextEl.textContent = "就绪";
       resultEl.classList.remove("text-red-600");
+      statusTextEl.textContent = "就绪";
       updateCharCount();
     });
 
@@ -245,6 +293,9 @@
         statusTextEl.textContent = "复制失败";
       }
     });
+
+    updateCharCount();
+    setMode("light");
   </script>
 </body>
 </html>
