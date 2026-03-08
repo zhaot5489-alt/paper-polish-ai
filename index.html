@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>润思 Rinse Think - Academic Writing Polish</title>
+  <title>润思 Rinse Think - 中英文学术润色</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen bg-[#f4f7fb] text-slate-800 font-sans">
@@ -25,9 +25,8 @@
 
         <nav class="hidden lg:flex items-center gap-6 text-sm text-slate-600">
           <a href="#workspace" class="hover:text-slate-900 transition">工作台</a>
-          <a href="#scenes" class="hover:text-slate-900 transition">应用场景</a>
+          <a href="#language" class="hover:text-slate-900 transition">语言板块</a>
           <a href="#features" class="hover:text-slate-900 transition">产品优势</a>
-          <a href="#how-it-works" class="hover:text-slate-900 transition">使用流程</a>
           <a href="#faq" class="hover:text-slate-900 transition">常见问题</a>
         </nav>
       </div>
@@ -40,7 +39,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#d3dfec] bg-white text-[#173a63] text-sm font-medium mb-5">
-              面向科研写作的英文润色工具
+              面向科研写作的中英文学术润色工具
             </div>
 
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
@@ -52,9 +51,9 @@
             </p>
 
             <p class="mt-6 text-base md:text-lg text-slate-600 leading-8 max-w-2xl">
-              专注于论文英文润色、摘要优化与回复审稿人表达提升。
-              让你的学术写作更清晰、更正式、更符合 SCI 风格，
-              同时保留你真正想表达的核心内容。
+              专注于英文润色与中文润色两大核心板块，
+              帮助你提升学术写作的清晰度、正式度与表达质量，
+              让论文、摘要、段落和学术表述更加规范自然。
             </p>
 
             <div class="mt-8 flex flex-wrap gap-3">
@@ -78,7 +77,7 @@
               <div class="flex items-center justify-between mb-4">
                 <div>
                   <div class="text-sm font-semibold text-slate-900">快速预览</div>
-                  <div class="text-xs text-slate-500 mt-1">更像正式 SaaS 产品的使用体验</div>
+                  <div class="text-xs text-slate-500 mt-1">中英文双板块，聚焦学术表达提升</div>
                 </div>
                 <div class="text-xs text-slate-500">Academic AI</div>
               </div>
@@ -99,59 +98,41 @@
                 </div>
               </div>
 
-              <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+              <div class="mt-4 grid grid-cols-2 gap-3 text-center">
                 <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                  <div class="text-base font-semibold text-slate-900">论文润色</div>
-                  <div class="text-xs text-slate-500 mt-1">正文表达优化</div>
+                  <div class="text-base font-semibold text-slate-900">英文润色</div>
+                  <div class="text-xs text-slate-500 mt-1">SCI 风格表达优化</div>
                 </div>
                 <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                  <div class="text-base font-semibold text-slate-900">摘要优化</div>
-                  <div class="text-xs text-slate-500 mt-1">凝练与清晰</div>
-                </div>
-                <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                  <div class="text-base font-semibold text-slate-900">回复审稿人</div>
-                  <div class="text-xs text-slate-500 mt-1">礼貌且专业</div>
+                  <div class="text-base font-semibold text-slate-900">中文润色</div>
+                  <div class="text-xs text-slate-500 mt-1">学术中文表达提升</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 场景卡片 -->
-        <div id="scenes" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- 语言板块 -->
+        <div id="language" class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
           <button
-            id="scene-card-paper"
+            id="lang-card-en"
             type="button"
-            class="scene-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition"
-            data-scene="paper"
+            class="lang-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition"
           >
-            <div class="text-sm font-semibold text-[#173a63]">论文润色</div>
+            <div class="text-sm font-semibold text-[#173a63]">英文润色</div>
             <div class="mt-2 text-sm text-slate-600 leading-7">
-              适用于引言、结果、讨论、结论等学术段落的英文表达优化。
+              适用于英文论文、摘要、学术段落和科研表达的语言优化与正式化润色。
             </div>
           </button>
 
           <button
-            id="scene-card-abstract"
+            id="lang-card-zh"
             type="button"
-            class="scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
-            data-scene="abstract"
+            class="lang-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
           >
-            <div class="text-sm font-semibold text-slate-900">摘要优化</div>
+            <div class="text-sm font-semibold text-slate-900">中文润色</div>
             <div class="mt-2 text-sm text-slate-600 leading-7">
-              更强调凝练、逻辑、信息密度与摘要常见学术表达方式。
-            </div>
-          </button>
-
-          <button
-            id="scene-card-reviewer"
-            type="button"
-            class="scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
-            data-scene="reviewer"
-          >
-            <div class="text-sm font-semibold text-slate-900">回复审稿人</div>
-            <div class="mt-2 text-sm text-slate-600 leading-7">
-              适用于 Response Letter、逐条回复和正式礼貌的学术回应。
+              适用于中文论文、摘要、研究表述和学术段落的表达优化与行文提升。
             </div>
           </button>
         </div>
@@ -160,15 +141,14 @@
 
     <!-- 工作台 -->
     <main id="workspace" class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 pb-10">
-      <!-- 工具条 -->
       <div class="mb-5 rounded-3xl border border-slate-200 bg-white shadow-sm px-5 py-5 md:px-6">
         <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
           <div>
             <h2 class="text-2xl font-bold text-slate-900">
               工作台 · <span class="text-[#173a63]">Rinse Think</span>
             </h2>
-            <p id="scene-title" class="text-sm text-slate-500 mt-2">
-              当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。
+            <p id="lang-title" class="text-sm text-slate-500 mt-2">
+              当前板块：英文润色。适用于英文论文、摘要和学术段落的语言优化。
             </p>
           </div>
 
@@ -197,7 +177,6 @@
         </div>
       </div>
 
-      <!-- 双栏编辑区 -->
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
         <!-- 左侧 -->
         <section class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
@@ -213,7 +192,7 @@
             <textarea
               id="input-text"
               rows="18"
-              placeholder="在此输入英文文本..."
+              placeholder="在此输入内容..."
               class="w-full resize-none rounded-3xl border border-slate-200 bg-white px-5 py-4 text-[15px] leading-8 text-slate-800 placeholder-slate-400 outline-none focus:border-[#173a63] focus:ring-4 focus:ring-[#dfe9f5] transition"
             ></textarea>
 
@@ -250,7 +229,7 @@
           <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">润色结果</div>
-              <div id="output-subtitle" class="text-xs text-slate-500 mt-1">输出优化后的学术英文</div>
+              <div id="output-subtitle" class="text-xs text-slate-500 mt-1">输出优化后的内容</div>
             </div>
             <div id="status-text" class="text-xs text-slate-500">就绪</div>
           </div>
@@ -276,16 +255,16 @@
       <!-- 产品优势 -->
       <section id="features" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
-          <div class="text-base font-semibold text-slate-900">更符合学术语境</div>
+          <div class="text-base font-semibold text-slate-900">中英文学术表达兼顾</div>
           <p class="mt-2 text-sm text-slate-600 leading-7">
-            针对论文写作、摘要优化和回复审稿人三类高频学术场景定制表达风格。
+            聚焦英文润色与中文润色两个核心板块，避免功能过多导致界面分散。
           </p>
         </div>
 
         <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
           <div class="text-base font-semibold text-slate-900">轻度与深度双模式</div>
           <p class="mt-2 text-sm text-slate-600 leading-7">
-            既能保守微调，也能明显提升句子凝练度和 SCI 风格，满足不同写作需求。
+            既能保守微调，也能明显提升句子凝练度、正式程度和整体表达质量。
           </p>
         </div>
 
@@ -297,42 +276,6 @@
         </div>
       </section>
 
-      <!-- 使用流程 -->
-      <section id="how-it-works" class="mt-8 rounded-3xl border border-slate-200 bg-white shadow-sm p-6">
-        <div class="flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <h3 class="text-xl font-bold text-slate-900">使用流程</h3>
-            <p class="text-sm text-slate-500 mt-2">只需三步，即可得到更正式、更自然的英文表达。</p>
-          </div>
-        </div>
-
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
-            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">1</div>
-            <div class="mt-4 text-base font-semibold text-slate-900">输入文本</div>
-            <p class="mt-2 text-sm text-slate-600 leading-7">
-              将论文段落、摘要或回复审稿人内容粘贴到输入框中。
-            </p>
-          </div>
-
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
-            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">2</div>
-            <div class="mt-4 text-base font-semibold text-slate-900">选择模式</div>
-            <p class="mt-2 text-sm text-slate-600 leading-7">
-              根据需要选择论文润色、摘要优化或回复审稿人，并选择轻度或深度润色。
-            </p>
-          </div>
-
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
-            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">3</div>
-            <div class="mt-4 text-base font-semibold text-slate-900">获取结果</div>
-            <p class="mt-2 text-sm text-slate-600 leading-7">
-              系统返回优化后的英文表达，你可以直接复制到论文或回复信中。
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- FAQ -->
       <section id="faq" class="mt-8 rounded-3xl border border-slate-200 bg-white shadow-sm p-6">
         <h3 class="text-xl font-bold text-slate-900">常见问题</h3>
@@ -340,21 +283,14 @@
           <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
             <div class="font-semibold text-slate-900">轻度润色和深度润色有什么区别？</div>
             <p class="mt-2 text-sm text-slate-600 leading-7">
-              轻度润色更注重保留原句式，只修正语法、措辞和局部表达；深度润色会在不改变原意的前提下，明显提升学术性、凝练度和正式程度。
+              轻度润色更注重保留原句式，只修正语法、措辞和局部表达；深度润色会在不改变原意的前提下，明显提升正式程度、逻辑性和表达质量。
             </p>
           </div>
 
           <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <div class="font-semibold text-slate-900">摘要优化适合什么内容？</div>
+            <div class="font-semibold text-slate-900">英文润色和中文润色有什么不同？</div>
             <p class="mt-2 text-sm text-slate-600 leading-7">
-              适合论文摘要、研究概述、结论摘要等内容，重点提升逻辑清晰度、语言凝练度与信息表达密度。
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <div class="font-semibold text-slate-900">回复审稿人模式有什么特点？</div>
-            <p class="mt-2 text-sm text-slate-600 leading-7">
-              该模式更强调礼貌、正式、清晰和回应性，适合审稿意见逐条回复、修改说明和 response letter 表达优化。
+              英文润色更强调学术英文的自然性、正式性和 SCI 风格；中文润色更强调行文流畅、逻辑清楚、表达规范和学术语言准确性。
             </p>
           </div>
         </div>
@@ -365,9 +301,9 @@
     <footer class="border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
         <div>
-          <span class="font-medium text-slate-700">润思 Rinse Think</span> · Academic Writing Polish
+          <span class="font-medium text-slate-700">润思 Rinse Think</span> · Chinese & English Academic Polishing
         </div>
-        <div id="footer-scene-text">当前场景：论文润色</div>
+        <div id="footer-lang-text">当前板块：英文润色</div>
       </div>
     </footer>
   </div>
@@ -385,18 +321,17 @@
     const modeLightBtn = document.getElementById("mode-light");
     const modeDeepBtn = document.getElementById("mode-deep");
 
-    const sceneCardPaper = document.getElementById("scene-card-paper");
-    const sceneCardAbstract = document.getElementById("scene-card-abstract");
-    const sceneCardReviewer = document.getElementById("scene-card-reviewer");
+    const langCardEn = document.getElementById("lang-card-en");
+    const langCardZh = document.getElementById("lang-card-zh");
 
-    const sceneTitleEl = document.getElementById("scene-title");
+    const langTitleEl = document.getElementById("lang-title");
     const inputSubtitleEl = document.getElementById("input-subtitle");
     const outputSubtitleEl = document.getElementById("output-subtitle");
-    const footerSceneTextEl = document.getElementById("footer-scene-text");
+    const footerLangTextEl = document.getElementById("footer-lang-text");
 
     const MAX_CHARS = 3000;
     let currentMode = "light";
-    let currentScene = "paper";
+    let currentLang = "en";
 
     function updateCharCount() {
       const length = inputEl.value.length;
@@ -423,7 +358,7 @@
       if (mode === "deep") {
         modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
         modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
-        modeDescEl.textContent = "当前为深度润色：在不改变原意的前提下，显著提升学术性、凝练度和 SCI 风格。";
+        modeDescEl.textContent = "当前为深度润色：在不改变原意的前提下，显著提升语言质量、正式程度和整体表达效果。";
       } else {
         modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
         modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
@@ -431,46 +366,40 @@
       }
     }
 
-    function resetSceneCardStyles() {
-      const inactive = "scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition";
-      sceneCardPaper.className = inactive;
-      sceneCardAbstract.className = inactive;
-      sceneCardReviewer.className = inactive;
+    function resetLangCardStyles() {
+      const inactive = "lang-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition";
+      langCardEn.className = inactive;
+      langCardZh.className = inactive;
     }
 
-    function setScene(scene) {
-      currentScene = scene;
-      resetSceneCardStyles();
+    function setLang(lang) {
+      currentLang = lang;
+      resetLangCardStyles();
 
-      const active = "scene-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition";
+      const active = "lang-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition";
 
-      if (scene === "abstract") {
-        sceneCardAbstract.className = active;
-        sceneTitleEl.textContent = "当前场景：摘要优化。适用于英文摘要、结论摘要和研究概述的凝练与学术化表达。";
-        inputSubtitleEl.textContent = "请输入或粘贴需要优化的英文摘要内容";
-        outputSubtitleEl.textContent = "输出更凝练、更清晰的摘要表达";
-        footerSceneTextEl.textContent = "当前场景：摘要优化";
-      } else if (scene === "reviewer") {
-        sceneCardReviewer.className = active;
-        sceneTitleEl.textContent = "当前场景：回复审稿人。适用于审稿意见回复、修改说明和礼貌正式的学术回应。";
-        inputSubtitleEl.textContent = "请输入或粘贴需要润色的回复审稿人英文内容";
-        outputSubtitleEl.textContent = "输出更礼貌、正式、清晰的回复表达";
-        footerSceneTextEl.textContent = "当前场景：回复审稿人";
+      if (lang === "zh") {
+        langCardZh.className = active;
+        langTitleEl.textContent = "当前板块：中文润色。适用于中文论文、摘要和学术段落的表达优化。";
+        inputSubtitleEl.textContent = "请输入或粘贴需要润色的中文内容";
+        outputSubtitleEl.textContent = "输出优化后的中文表达";
+        footerLangTextEl.textContent = "当前板块：中文润色";
+        inputEl.placeholder = "在此输入中文内容...";
       } else {
-        sceneCardPaper.className = active;
-        sceneTitleEl.textContent = "当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。";
+        langCardEn.className = active;
+        langTitleEl.textContent = "当前板块：英文润色。适用于英文论文、摘要和学术段落的语言优化。";
         inputSubtitleEl.textContent = "请输入或粘贴需要润色的英文内容";
-        outputSubtitleEl.textContent = "输出优化后的学术英文";
-        footerSceneTextEl.textContent = "当前场景：论文润色";
+        outputSubtitleEl.textContent = "输出优化后的英文表达";
+        footerLangTextEl.textContent = "当前板块：英文润色";
+        inputEl.placeholder = "在此输入英文内容...";
       }
     }
 
     inputEl.addEventListener("input", updateCharCount);
     modeLightBtn.addEventListener("click", () => setMode("light"));
     modeDeepBtn.addEventListener("click", () => setMode("deep"));
-    sceneCardPaper.addEventListener("click", () => setScene("paper"));
-    sceneCardAbstract.addEventListener("click", () => setScene("abstract"));
-    sceneCardReviewer.addEventListener("click", () => setScene("reviewer"));
+    langCardEn.addEventListener("click", () => setLang("en"));
+    langCardZh.addEventListener("click", () => setLang("zh"));
 
     polishBtn.addEventListener("click", async function () {
       const text = inputEl.value.trim();
@@ -504,7 +433,7 @@
           body: JSON.stringify({
             text,
             mode: currentMode,
-            scene: currentScene
+            lang: currentLang
           })
         });
 
@@ -561,7 +490,7 @@
 
     updateCharCount();
     setMode("light");
-    setScene("paper");
+    setLang("en");
   </script>
 </body>
 </html>
