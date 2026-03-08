@@ -6,109 +6,204 @@
   <title>润思 RinseThink - Academic Writing Polish</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-[#f5f7fb] text-slate-800 font-sans">
+<body class="min-h-screen bg-[#f6f8fc] text-slate-800 font-sans">
   <div class="min-h-screen flex flex-col">
     <!-- 顶部导航 -->
-    <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+    <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/85 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-lg font-bold shadow-sm">
             润
           </div>
-
           <div>
-            <h1 class="text-xl font-bold text-slate-900 leading-none tracking-tight">
-              润思 <span class="text-blue-600 font-semibold">RinseThink</span>
-            </h1>
-            <p class="text-xs text-slate-500 mt-1 italic">
-              Rinse your mind, think clearly
-            </p>
+            <div class="text-lg font-bold text-slate-900 leading-none">
+              润思 <span class="text-blue-600">RinseThink</span>
+            </div>
+            <div class="text-xs text-slate-500 mt-1">Rinse your mind, think clearly</div>
           </div>
         </div>
 
-        <div class="hidden md:flex items-center gap-3 text-sm">
-          <button
-            id="scene-paper"
-            type="button"
-            class="scene-btn px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200"
-            data-scene="paper"
-          >
-            论文润色
-          </button>
-          <button
-            id="scene-abstract"
-            type="button"
-            class="scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition"
-            data-scene="abstract"
-          >
-            摘要优化
-          </button>
-          <button
-            id="scene-reviewer"
-            type="button"
-            class="scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition"
-            data-scene="reviewer"
-          >
-            回复审稿人
-          </button>
-        </div>
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-slate-600">
+          <a href="#workspace" class="hover:text-slate-900 transition">工作台</a>
+          <a href="#scenes" class="hover:text-slate-900 transition">应用场景</a>
+          <a href="#features" class="hover:text-slate-900 transition">产品优势</a>
+        </nav>
       </div>
     </header>
 
-    <!-- 主体 -->
-    <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-6 md:py-8">
-      <!-- 顶部工具条 -->
-      <div class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-sm px-4 py-5 md:px-6">
-        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-blue-50/80 to-transparent pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-14 pb-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 class="text-2xl font-bold text-slate-900">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-100 bg-blue-50 text-blue-700 text-sm font-medium mb-5">
+              面向科研写作的英文润色工具
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
               润思 <span class="text-blue-600">RinseThink</span>
-            </h2>
-            <p class="text-sm text-slate-500 mt-1">
+            </h1>
+
+            <p class="mt-3 text-lg md:text-xl text-slate-600 font-medium italic">
               Rinse your mind, think clearly
             </p>
+
+            <p class="mt-5 text-base md:text-lg text-slate-600 leading-8 max-w-2xl">
+              专注于论文英文润色、摘要优化与回复审稿人表达提升。
+              让你的学术写作更清晰、更正式、更符合 SCI 风格。
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#workspace"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm"
+              >
+                立即开始
+              </a>
+              <a
+                href="#features"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium hover:bg-slate-50 transition"
+              >
+                了解功能
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:pl-8">
+            <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <div class="text-sm font-semibold text-slate-900">快速预览</div>
+                  <div class="text-xs text-slate-500 mt-1">更像正式 SaaS 工具的使用体验</div>
+                </div>
+                <div class="text-xs text-slate-500">Academic AI</div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div class="text-xs text-slate-500 mb-2">原文</div>
+                  <p class="text-sm leading-7 text-slate-700">
+                    Cadmium is very harmful for plants, and it can badly influence plant growth and the balance of ecosystem.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
+                  <div class="text-xs text-blue-600 mb-2">润色后</div>
+                  <p class="text-sm leading-7 text-slate-800">
+                    Cadmium is highly toxic to plants and can severely impair plant growth and ecosystem balance.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+                <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
+                  <div class="text-base font-semibold text-slate-900">论文润色</div>
+                  <div class="text-xs text-slate-500 mt-1">正文表达优化</div>
+                </div>
+                <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
+                  <div class="text-base font-semibold text-slate-900">摘要优化</div>
+                  <div class="text-xs text-slate-500 mt-1">凝练与清晰</div>
+                </div>
+                <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
+                  <div class="text-base font-semibold text-slate-900">回复审稿人</div>
+                  <div class="text-xs text-slate-500 mt-1">礼貌且专业</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 场景卡片 -->
+        <div id="scenes" class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button
+            id="scene-card-paper"
+            type="button"
+            class="scene-card text-left rounded-2xl border border-blue-200 bg-blue-50 p-5 shadow-sm transition"
+            data-scene="paper"
+          >
+            <div class="text-sm font-semibold text-blue-700">论文润色</div>
+            <div class="mt-2 text-sm text-slate-600 leading-7">
+              适用于引言、结果、讨论、结论等学术段落的英文表达优化。
+            </div>
+          </button>
+
+          <button
+            id="scene-card-abstract"
+            type="button"
+            class="scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
+            data-scene="abstract"
+          >
+            <div class="text-sm font-semibold text-slate-900">摘要优化</div>
+            <div class="mt-2 text-sm text-slate-600 leading-7">
+              更强调凝练、逻辑、信息密度与摘要常见学术表达方式。
+            </div>
+          </button>
+
+          <button
+            id="scene-card-reviewer"
+            type="button"
+            class="scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
+            data-scene="reviewer"
+          >
+            <div class="text-sm font-semibold text-slate-900">回复审稿人</div>
+            <div class="mt-2 text-sm text-slate-600 leading-7">
+              适用于 Response Letter、逐条回复和正式礼貌的学术回应。
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工作台 -->
+    <main id="workspace" class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 pb-10">
+      <!-- 工具条 -->
+      <div class="mb-5 rounded-3xl border border-slate-200 bg-white shadow-sm px-5 py-5 md:px-6">
+        <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900">
+              工作台 · <span class="text-blue-600">RinseThink</span>
+            </h2>
             <p id="scene-title" class="text-sm text-slate-500 mt-2">
               当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。
             </p>
           </div>
 
           <div class="flex flex-wrap items-center gap-3">
-            <div class="flex items-center rounded-xl border border-slate-200 bg-slate-50 p-1">
+            <div class="flex items-center rounded-2xl border border-slate-200 bg-slate-50 p-1.5">
               <button
                 id="mode-light"
                 type="button"
-                class="mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200"
-                data-mode="light"
+                class="mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200"
               >
                 轻度润色
               </button>
               <button
                 id="mode-deep"
                 type="button"
-                class="mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600"
-                data-mode="deep"
+                class="mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600"
               >
                 深度润色
               </button>
             </div>
 
-            <div class="text-sm text-slate-500">
+            <div class="px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-500">
               <span id="char-count">0 / 3000</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 双栏 -->
+      <!-- 双栏编辑区 -->
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-        <!-- 左侧输入 -->
-        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-          <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
+        <!-- 左侧 -->
+        <section class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
-              <div class="text-sm font-semibold text-slate-900">原文</div>
-              <div id="input-subtitle" class="text-xs text-slate-500 mt-0.5">请输入或粘贴需要润色的英文内容</div>
+              <div class="text-sm font-semibold text-slate-900">原文输入</div>
+              <div id="input-subtitle" class="text-xs text-slate-500 mt-1">请输入或粘贴需要润色的英文内容</div>
             </div>
-            <div class="text-xs text-slate-500">输入区</div>
+            <div class="text-xs text-slate-500">Input</div>
           </div>
 
           <div class="p-5">
@@ -116,10 +211,10 @@
               id="input-text"
               rows="18"
               placeholder="在此输入英文文本..."
-              class="w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-4 text-[15px] leading-7 text-slate-800 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+              class="w-full resize-none rounded-3xl border border-slate-200 bg-white px-5 py-4 text-[15px] leading-8 text-slate-800 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
             ></textarea>
 
-            <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <p id="mode-desc" class="text-sm text-slate-600">
                   当前为轻度润色：尽量保留原意和原句式，主要优化语法、用词和细节表达。
@@ -132,13 +227,13 @@
               <div class="flex flex-wrap gap-3">
                 <button
                   id="clear-btn"
-                  class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
+                  class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition"
                 >
                   清空
                 </button>
                 <button
                   id="polish-btn"
-                  class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                  class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
                 >
                   开始润色
                 </button>
@@ -147,26 +242,26 @@
           </div>
         </section>
 
-        <!-- 右侧输出 -->
-        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-          <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
+        <!-- 右侧 -->
+        <section class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">润色结果</div>
-              <div id="output-subtitle" class="text-xs text-slate-500 mt-0.5">输出优化后的学术英文</div>
+              <div id="output-subtitle" class="text-xs text-slate-500 mt-1">输出优化后的学术英文</div>
             </div>
             <div id="status-text" class="text-xs text-slate-500">就绪</div>
           </div>
 
-          <div class="p-5 flex flex-col min-h-[560px]">
+          <div class="p-5 flex flex-col min-h-[580px]">
             <div
               id="result-text"
-              class="flex-1 rounded-2xl border border-slate-200 bg-[#f8faff] px-4 py-4 text-[15px] leading-7 text-slate-800 whitespace-pre-wrap"
+              class="flex-1 rounded-3xl border border-slate-200 bg-[#f8faff] px-5 py-4 text-[15px] leading-8 text-slate-800 whitespace-pre-wrap"
             ></div>
 
             <div class="mt-4 flex flex-wrap gap-3 justify-end">
               <button
                 id="copy-btn"
-                class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 transition"
+                class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition"
               >
                 复制结果
               </button>
@@ -174,12 +269,38 @@
           </div>
         </section>
       </div>
+
+      <!-- 产品优势 -->
+      <section id="features" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+          <div class="text-base font-semibold text-slate-900">更符合学术语境</div>
+          <p class="mt-2 text-sm text-slate-600 leading-7">
+            针对论文写作、摘要优化和回复审稿人三类高频学术场景定制表达风格。
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+          <div class="text-base font-semibold text-slate-900">轻度与深度双模式</div>
+          <p class="mt-2 text-sm text-slate-600 leading-7">
+            既能保守微调，也能明显提升句子凝练度和 SCI 风格，满足不同写作需求。
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+          <div class="text-base font-semibold text-slate-900">简洁专业的工作流</div>
+          <p class="mt-2 text-sm text-slate-600 leading-7">
+            输入、润色、复制一气呵成，更贴近正式 SaaS 工具的使用体验。
+          </p>
+        </div>
+      </section>
     </main>
 
-    <!-- 底部 -->
+    <!-- 页脚 -->
     <footer class="border-t border-slate-200 bg-white">
-      <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
-        <div>润思 RinseThink · Academic Writing Polish</div>
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
+        <div>
+          <span class="font-medium text-slate-700">润思 RinseThink</span> · Academic Writing Polish
+        </div>
         <div id="footer-scene-text">当前场景：论文润色</div>
       </div>
     </footer>
@@ -198,9 +319,9 @@
     const modeLightBtn = document.getElementById("mode-light");
     const modeDeepBtn = document.getElementById("mode-deep");
 
-    const scenePaperBtn = document.getElementById("scene-paper");
-    const sceneAbstractBtn = document.getElementById("scene-abstract");
-    const sceneReviewerBtn = document.getElementById("scene-reviewer");
+    const sceneCardPaper = document.getElementById("scene-card-paper");
+    const sceneCardAbstract = document.getElementById("scene-card-abstract");
+    const sceneCardReviewer = document.getElementById("scene-card-reviewer");
 
     const sceneTitleEl = document.getElementById("scene-title");
     const inputSubtitleEl = document.getElementById("input-subtitle");
@@ -234,43 +355,43 @@
       currentMode = mode;
 
       if (mode === "deep") {
-        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
-        modeLightBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600";
+        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
+        modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
         modeDescEl.textContent = "当前为深度润色：在不改变原意的前提下，显著提升学术性、凝练度和 SCI 风格。";
       } else {
-        modeLightBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
-        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600";
+        modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
+        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
         modeDescEl.textContent = "当前为轻度润色：尽量保留原意和原句式，主要优化语法、用词和细节表达。";
       }
     }
 
-    function resetSceneButtonStyles() {
-      const inactiveClass = "scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition";
-      scenePaperBtn.className = inactiveClass;
-      sceneAbstractBtn.className = inactiveClass;
-      sceneReviewerBtn.className = inactiveClass;
+    function resetSceneCardStyles() {
+      const inactive = "scene-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition";
+      sceneCardPaper.className = inactive;
+      sceneCardAbstract.className = inactive;
+      sceneCardReviewer.className = inactive;
     }
 
     function setScene(scene) {
       currentScene = scene;
-      resetSceneButtonStyles();
+      resetSceneCardStyles();
 
-      const activeClass = "scene-btn px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200";
+      const active = "scene-card text-left rounded-2xl border border-blue-200 bg-blue-50 p-5 shadow-sm transition";
 
       if (scene === "abstract") {
-        sceneAbstractBtn.className = activeClass;
+        sceneCardAbstract.className = active;
         sceneTitleEl.textContent = "当前场景：摘要优化。适用于英文摘要、结论摘要和研究概述的凝练与学术化表达。";
         inputSubtitleEl.textContent = "请输入或粘贴需要优化的英文摘要内容";
         outputSubtitleEl.textContent = "输出更凝练、更清晰的摘要表达";
         footerSceneTextEl.textContent = "当前场景：摘要优化";
       } else if (scene === "reviewer") {
-        sceneReviewerBtn.className = activeClass;
+        sceneCardReviewer.className = active;
         sceneTitleEl.textContent = "当前场景：回复审稿人。适用于审稿意见回复、修改说明和礼貌正式的学术回应。";
         inputSubtitleEl.textContent = "请输入或粘贴需要润色的回复审稿人英文内容";
         outputSubtitleEl.textContent = "输出更礼貌、正式、清晰的回复表达";
         footerSceneTextEl.textContent = "当前场景：回复审稿人";
       } else {
-        scenePaperBtn.className = activeClass;
+        sceneCardPaper.className = active;
         sceneTitleEl.textContent = "当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。";
         inputSubtitleEl.textContent = "请输入或粘贴需要润色的英文内容";
         outputSubtitleEl.textContent = "输出优化后的学术英文";
@@ -281,9 +402,9 @@
     inputEl.addEventListener("input", updateCharCount);
     modeLightBtn.addEventListener("click", () => setMode("light"));
     modeDeepBtn.addEventListener("click", () => setMode("deep"));
-    scenePaperBtn.addEventListener("click", () => setScene("paper"));
-    sceneAbstractBtn.addEventListener("click", () => setScene("abstract"));
-    sceneReviewerBtn.addEventListener("click", () => setScene("reviewer"));
+    sceneCardPaper.addEventListener("click", () => setScene("paper"));
+    sceneCardAbstract.addEventListener("click", () => setScene("abstract"));
+    sceneCardReviewer.addEventListener("click", () => setScene("reviewer"));
 
     polishBtn.addEventListener("click", async function () {
       const text = inputEl.value.trim();
