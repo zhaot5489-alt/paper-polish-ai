@@ -18,17 +18,19 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "claude-3-opus-20240229",
+        max_tokens: 1024,
+        temperature: 0.2,
         messages: [
           {
             role: "system",
-            content: "You are an expert academic editor. Polish academic text to improve clarity, grammar, and scientific tone."
+            content:
+              "You are an expert academic editor for SCI manuscripts. Polish the user's text to improve clarity, grammar, conciseness, coherence, and formal scientific tone. Preserve the original meaning. Return only the revised text, with no commentary, no headings, no quotation marks, and no explanation of edits."
           },
           {
             role: "user",
             content: text
           }
-        ],
-        max_tokens: 1024
+        ]
       })
     });
 
@@ -42,7 +44,7 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
-      polished: data?.choices?.[0]?.message?.content || ""
+      polished: data?.choices?.[0]?.message?.content?.trim() || ""
     });
   } catch (error) {
     return res.status(500).json({
