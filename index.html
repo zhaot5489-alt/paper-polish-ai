@@ -21,10 +21,31 @@
           </div>
         </div>
 
-        <div class="hidden md:flex items-center gap-3 text-sm text-slate-500">
-          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">论文润色</span>
-          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">摘要优化</span>
-          <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200">回复审稿人</span>
+        <div class="hidden md:flex items-center gap-3 text-sm">
+          <button
+            id="scene-paper"
+            type="button"
+            class="scene-btn px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200"
+            data-scene="paper"
+          >
+            论文润色
+          </button>
+          <button
+            id="scene-abstract"
+            type="button"
+            class="scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition"
+            data-scene="abstract"
+          >
+            摘要优化
+          </button>
+          <button
+            id="scene-reviewer"
+            type="button"
+            class="scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition"
+            data-scene="reviewer"
+          >
+            回复审稿人
+          </button>
         </div>
       </div>
     </header>
@@ -36,8 +57,8 @@
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
             <h2 class="text-xl font-semibold text-slate-900">润思 · Academic Polish</h2>
-            <p class="text-sm text-slate-500 mt-1">
-              适用于 SCI 论文、英文摘要、学术段落和审稿回复的英文润色。
+            <p id="scene-title" class="text-sm text-slate-500 mt-1">
+              当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。
             </p>
           </div>
 
@@ -75,7 +96,7 @@
           <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">原文</div>
-              <div class="text-xs text-slate-500 mt-0.5">请输入或粘贴需要润色的英文内容</div>
+              <div id="input-subtitle" class="text-xs text-slate-500 mt-0.5">请输入或粘贴需要润色的英文内容</div>
             </div>
             <div class="text-xs text-slate-500">输入区</div>
           </div>
@@ -121,7 +142,7 @@
           <div class="h-14 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">润色结果</div>
-              <div class="text-xs text-slate-500 mt-0.5">输出优化后的学术英文</div>
+              <div id="output-subtitle" class="text-xs text-slate-500 mt-0.5">输出优化后的学术英文</div>
             </div>
             <div id="status-text" class="text-xs text-slate-500">就绪</div>
           </div>
@@ -149,7 +170,7 @@
     <footer class="border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
         <div>润思 · 面向科研写作的英文润色工具</div>
-        <div>支持轻度润色与深度润色两种模式</div>
+        <div id="footer-scene-text">当前场景：论文润色</div>
       </div>
     </footer>
   </div>
@@ -167,8 +188,18 @@
     const modeLightBtn = document.getElementById("mode-light");
     const modeDeepBtn = document.getElementById("mode-deep");
 
+    const scenePaperBtn = document.getElementById("scene-paper");
+    const sceneAbstractBtn = document.getElementById("scene-abstract");
+    const sceneReviewerBtn = document.getElementById("scene-reviewer");
+
+    const sceneTitleEl = document.getElementById("scene-title");
+    const inputSubtitleEl = document.getElementById("input-subtitle");
+    const outputSubtitleEl = document.getElementById("output-subtitle");
+    const footerSceneTextEl = document.getElementById("footer-scene-text");
+
     const MAX_CHARS = 3000;
     let currentMode = "light";
+    let currentScene = "paper";
 
     function updateCharCount() {
       const length = inputEl.value.length;
@@ -203,10 +234,46 @@
       }
     }
 
-    inputEl.addEventListener("input", updateCharCount);
+    function resetSceneButtonStyles() {
+      const inactiveClass = "scene-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition";
+      scenePaperBtn.className = inactiveClass;
+      sceneAbstractBtn.className = inactiveClass;
+      sceneReviewerBtn.className = inactiveClass;
+    }
 
+    function setScene(scene) {
+      currentScene = scene;
+      resetSceneButtonStyles();
+
+      const activeClass = "scene-btn px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200";
+
+      if (scene === "abstract") {
+        sceneAbstractBtn.className = activeClass;
+        sceneTitleEl.textContent = "当前场景：摘要优化。适用于英文摘要、结论摘要和研究概述的凝练与学术化表达。";
+        inputSubtitleEl.textContent = "请输入或粘贴需要优化的英文摘要内容";
+        outputSubtitleEl.textContent = "输出更凝练、更清晰的摘要表达";
+        footerSceneTextEl.textContent = "当前场景：摘要优化";
+      } else if (scene === "reviewer") {
+        sceneReviewerBtn.className = activeClass;
+        sceneTitleEl.textContent = "当前场景：回复审稿人。适用于审稿意见回复、修改说明和礼貌正式的学术回应。";
+        inputSubtitleEl.textContent = "请输入或粘贴需要润色的回复审稿人英文内容";
+        outputSubtitleEl.textContent = "输出更礼貌、正式、清晰的回复表达";
+        footerSceneTextEl.textContent = "当前场景：回复审稿人";
+      } else {
+        scenePaperBtn.className = activeClass;
+        sceneTitleEl.textContent = "当前场景：论文润色。适用于论文正文、引言、讨论、结果等学术段落的英文润色。";
+        inputSubtitleEl.textContent = "请输入或粘贴需要润色的英文内容";
+        outputSubtitleEl.textContent = "输出优化后的学术英文";
+        footerSceneTextEl.textContent = "当前场景：论文润色";
+      }
+    }
+
+    inputEl.addEventListener("input", updateCharCount);
     modeLightBtn.addEventListener("click", () => setMode("light"));
     modeDeepBtn.addEventListener("click", () => setMode("deep"));
+    scenePaperBtn.addEventListener("click", () => setScene("paper"));
+    sceneAbstractBtn.addEventListener("click", () => setScene("abstract"));
+    sceneReviewerBtn.addEventListener("click", () => setScene("reviewer"));
 
     polishBtn.addEventListener("click", async function () {
       const text = inputEl.value.trim();
@@ -239,7 +306,8 @@
           },
           body: JSON.stringify({
             text,
-            mode: currentMode
+            mode: currentMode,
+            scene: currentScene
           })
         });
 
@@ -296,6 +364,7 @@
 
     updateCharCount();
     setMode("light");
+    setScene("paper");
   </script>
 </body>
 </html>
