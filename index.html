@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>润思 Rinse Think - 中英文学术润色</title>
+  <title>润思 Rinse Think - AI Academic Polishing</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen bg-[#f4f7fb] text-slate-800 font-sans">
@@ -25,8 +25,8 @@
 
         <nav class="hidden lg:flex items-center gap-6 text-sm text-slate-600">
           <a href="#workspace" class="hover:text-slate-900 transition">工作台</a>
-          <a href="#language" class="hover:text-slate-900 transition">语言板块</a>
           <a href="#features" class="hover:text-slate-900 transition">产品优势</a>
+          <a href="#how-it-works" class="hover:text-slate-900 transition">使用流程</a>
           <a href="#faq" class="hover:text-slate-900 transition">常见问题</a>
         </nav>
       </div>
@@ -39,7 +39,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#d3dfec] bg-white text-[#173a63] text-sm font-medium mb-5">
-              面向科研写作的中英文学术润色工具
+              AI Academic Polishing
             </div>
 
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
@@ -51,9 +51,8 @@
             </p>
 
             <p class="mt-6 text-base md:text-lg text-slate-600 leading-8 max-w-2xl">
-              专注于英文润色与中文润色两大核心板块，
-              帮助你提升学术写作的清晰度、正式度与表达质量，
-              让论文、摘要、段落和学术表述更加规范自然。
+              自动识别中英文，支持轻度润色、深度润色与学术增强。
+              专注于论文、摘要、学术段落与科研表达优化，让你的写作更清晰、更正式、更有学术质感。
             </p>
 
             <div class="mt-8 flex flex-wrap gap-3">
@@ -77,7 +76,7 @@
               <div class="flex items-center justify-between mb-4">
                 <div>
                   <div class="text-sm font-semibold text-slate-900">快速预览</div>
-                  <div class="text-xs text-slate-500 mt-1">中英文双板块，聚焦学术表达提升</div>
+                  <div class="text-xs text-slate-500 mt-1">更像正式 SaaS 产品的使用体验</div>
                 </div>
                 <div class="text-xs text-slate-500">Academic AI</div>
               </div>
@@ -98,57 +97,37 @@
                 </div>
               </div>
 
-              <div class="mt-4 grid grid-cols-2 gap-3 text-center">
+              <div class="mt-4 grid grid-cols-3 gap-3 text-center">
                 <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                  <div class="text-base font-semibold text-slate-900">英文润色</div>
-                  <div class="text-xs text-slate-500 mt-1">SCI 风格表达优化</div>
+                  <div class="text-base font-semibold text-slate-900">自动识别</div>
+                  <div class="text-xs text-slate-500 mt-1">中文 / English</div>
                 </div>
                 <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                  <div class="text-base font-semibold text-slate-900">中文润色</div>
-                  <div class="text-xs text-slate-500 mt-1">学术中文表达提升</div>
+                  <div class="text-base font-semibold text-slate-900">三种模式</div>
+                  <div class="text-xs text-slate-500 mt-1">轻度 / 深度 / 学术增强</div>
+                </div>
+                <div class="rounded-2xl bg-slate-50 p-3 border border-slate-200">
+                  <div class="text-base font-semibold text-slate-900">历史记录</div>
+                  <div class="text-xs text-slate-500 mt-1">最近润色可回看</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- 语言板块 -->
-        <div id="language" class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button
-            id="lang-card-en"
-            type="button"
-            class="lang-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition"
-          >
-            <div class="text-sm font-semibold text-[#173a63]">英文润色</div>
-            <div class="mt-2 text-sm text-slate-600 leading-7">
-              适用于英文论文、摘要、学术段落和科研表达的语言优化与正式化润色。
-            </div>
-          </button>
-
-          <button
-            id="lang-card-zh"
-            type="button"
-            class="lang-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition"
-          >
-            <div class="text-sm font-semibold text-slate-900">中文润色</div>
-            <div class="mt-2 text-sm text-slate-600 leading-7">
-              适用于中文论文、摘要、研究表述和学术段落的表达优化与行文提升。
-            </div>
-          </button>
         </div>
       </div>
     </section>
 
     <!-- 工作台 -->
     <main id="workspace" class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 pb-10">
+      <!-- 工具条 -->
       <div class="mb-5 rounded-3xl border border-slate-200 bg-white shadow-sm px-5 py-5 md:px-6">
         <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
           <div>
             <h2 class="text-2xl font-bold text-slate-900">
               工作台 · <span class="text-[#173a63]">Rinse Think</span>
             </h2>
-            <p id="lang-title" class="text-sm text-slate-500 mt-2">
-              当前板块：英文润色。适用于英文论文、摘要和学术段落的语言优化。
+            <p class="text-sm text-slate-500 mt-2">
+              自动识别语言并选择相应润色策略。
             </p>
           </div>
 
@@ -168,6 +147,13 @@
               >
                 深度润色
               </button>
+              <button
+                id="mode-academic"
+                type="button"
+                class="mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600"
+              >
+                学术增强
+              </button>
             </div>
 
             <div class="px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-500">
@@ -177,13 +163,29 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-        <!-- 左侧 -->
+      <!-- 自动识别状态 -->
+      <div class="mb-5 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+          <div class="text-xs text-slate-500 mb-1">语言状态</div>
+          <div id="lang-status" class="text-base font-semibold text-slate-900">等待输入</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+          <div class="text-xs text-slate-500 mb-1">当前模式</div>
+          <div id="mode-status" class="text-base font-semibold text-slate-900">轻度润色</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+          <div class="text-xs text-slate-500 mb-1">处理状态</div>
+          <div id="status-text" class="text-base font-semibold text-slate-900">就绪</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 2xl:grid-cols-[1.2fr_1.2fr_0.7fr] gap-5">
+        <!-- 左侧输入 -->
         <section class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
           <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">原文输入</div>
-              <div id="input-subtitle" class="text-xs text-slate-500 mt-1">请输入或粘贴需要润色的英文内容</div>
+              <div id="input-subtitle" class="text-xs text-slate-500 mt-1">系统将自动识别中文或英文</div>
             </div>
             <div class="text-xs text-slate-500">Input</div>
           </div>
@@ -192,7 +194,7 @@
             <textarea
               id="input-text"
               rows="18"
-              placeholder="在此输入内容..."
+              placeholder="在此输入中文或英文内容..."
               class="w-full resize-none rounded-3xl border border-slate-200 bg-white px-5 py-4 text-[15px] leading-8 text-slate-800 placeholder-slate-400 outline-none focus:border-[#173a63] focus:ring-4 focus:ring-[#dfe9f5] transition"
             ></textarea>
 
@@ -207,6 +209,12 @@
               </div>
 
               <div class="flex flex-wrap gap-3">
+                <button
+                  id="example-btn"
+                  class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition"
+                >
+                  示例文本
+                </button>
                 <button
                   id="clear-btn"
                   class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition"
@@ -224,14 +232,14 @@
           </div>
         </section>
 
-        <!-- 右侧 -->
+        <!-- 中间结果 -->
         <section class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
           <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
             <div>
               <div class="text-sm font-semibold text-slate-900">润色结果</div>
               <div id="output-subtitle" class="text-xs text-slate-500 mt-1">输出优化后的内容</div>
             </div>
-            <div id="status-text" class="text-xs text-slate-500">就绪</div>
+            <div id="detected-lang-badge" class="text-xs text-slate-500">未识别</div>
           </div>
 
           <div class="p-5 flex flex-col min-h-[580px]">
@@ -250,29 +258,87 @@
             </div>
           </div>
         </section>
+
+        <!-- 右侧历史记录 -->
+        <aside class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="h-16 border-b border-slate-200 px-5 flex items-center justify-between bg-white">
+            <div>
+              <div class="text-sm font-semibold text-slate-900">历史记录</div>
+              <div class="text-xs text-slate-500 mt-1">最近 10 条润色结果</div>
+            </div>
+            <button
+              id="clear-history-btn"
+              class="text-xs text-slate-500 hover:text-slate-900 transition"
+              type="button"
+            >
+              清空历史
+            </button>
+          </div>
+
+          <div id="history-list" class="p-4 space-y-3 max-h-[700px] overflow-auto">
+            <div class="text-sm text-slate-400">暂无历史记录</div>
+          </div>
+        </aside>
       </div>
 
       <!-- 产品优势 -->
-      <section id="features" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section id="features" class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
-          <div class="text-base font-semibold text-slate-900">中英文学术表达兼顾</div>
+          <div class="text-base font-semibold text-slate-900">自动识别语言</div>
           <p class="mt-2 text-sm text-slate-600 leading-7">
-            聚焦英文润色与中文润色两个核心板块，避免功能过多导致界面分散。
+            输入中文或英文后，系统自动识别并采用对应润色策略。
           </p>
         </div>
 
         <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
-          <div class="text-base font-semibold text-slate-900">轻度与深度双模式</div>
+          <div class="text-base font-semibold text-slate-900">三种润色模式</div>
           <p class="mt-2 text-sm text-slate-600 leading-7">
-            既能保守微调，也能明显提升句子凝练度、正式程度和整体表达质量。
+            轻度润色、深度润色、学术增强，满足不同程度的写作优化需求。
           </p>
         </div>
 
         <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
-          <div class="text-base font-semibold text-slate-900">简洁专业的工作流</div>
+          <div class="text-base font-semibold text-slate-900">最近记录可回看</div>
           <p class="mt-2 text-sm text-slate-600 leading-7">
-            输入、润色、复制一气呵成，更贴近正式 SaaS 工具的使用体验。
+            自动保存最近 10 条润色历史，方便反复对比和调用。
           </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+          <div class="text-base font-semibold text-slate-900">官网 + 工作台一体</div>
+          <p class="mt-2 text-sm text-slate-600 leading-7">
+            既能展示产品价值，也能直接进入使用场景，体验更完整。
+          </p>
+        </div>
+      </section>
+
+      <!-- 使用流程 -->
+      <section id="how-it-works" class="mt-8 rounded-3xl border border-slate-200 bg-white shadow-sm p-6">
+        <h3 class="text-xl font-bold text-slate-900">使用流程</h3>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">1</div>
+            <div class="mt-4 text-base font-semibold text-slate-900">输入文本</div>
+            <p class="mt-2 text-sm text-slate-600 leading-7">
+              粘贴中文或英文内容，系统会自动识别语言类型。
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">2</div>
+            <div class="mt-4 text-base font-semibold text-slate-900">选择模式</div>
+            <p class="mt-2 text-sm text-slate-600 leading-7">
+              根据需求选择轻度润色、深度润色或学术增强。
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="w-9 h-9 rounded-full bg-[#173a63] text-white flex items-center justify-center text-sm font-bold">3</div>
+            <div class="mt-4 text-base font-semibold text-slate-900">获取结果</div>
+            <p class="mt-2 text-sm text-slate-600 leading-7">
+              生成润色内容后可直接复制，同时自动保存到历史记录。
+            </p>
+          </div>
         </div>
       </section>
 
@@ -281,16 +347,23 @@
         <h3 class="text-xl font-bold text-slate-900">常见问题</h3>
         <div class="mt-6 space-y-4">
           <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <div class="font-semibold text-slate-900">轻度润色和深度润色有什么区别？</div>
+            <div class="font-semibold text-slate-900">学术增强和深度润色有什么区别？</div>
             <p class="mt-2 text-sm text-slate-600 leading-7">
-              轻度润色更注重保留原句式，只修正语法、措辞和局部表达；深度润色会在不改变原意的前提下，明显提升正式程度、逻辑性和表达质量。
+              深度润色强调整体正式度、凝练度和可读性；学术增强则更进一步，强调学术语感、逻辑性和更接近论文写作风格的表达。
             </p>
           </div>
 
           <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <div class="font-semibold text-slate-900">英文润色和中文润色有什么不同？</div>
+            <div class="font-semibold text-slate-900">自动识别语言是否需要手动切换？</div>
             <p class="mt-2 text-sm text-slate-600 leading-7">
-              英文润色更强调学术英文的自然性、正式性和 SCI 风格；中文润色更强调行文流畅、逻辑清楚、表达规范和学术语言准确性。
+              不需要。你直接输入文本即可，系统会根据内容自动判断中文或英文。
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div class="font-semibold text-slate-900">历史记录会保存多久？</div>
+            <p class="mt-2 text-sm text-slate-600 leading-7">
+              当前版本会在浏览器本地保存最近 10 条记录，刷新页面后仍可查看，但更换浏览器或清空缓存后会消失。
             </p>
           </div>
         </div>
@@ -301,9 +374,9 @@
     <footer class="border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-slate-500">
         <div>
-          <span class="font-medium text-slate-700">润思 Rinse Think</span> · Chinese & English Academic Polishing
+          <span class="font-medium text-slate-700">润思 Rinse Think</span> · AI Academic Polishing
         </div>
-        <div id="footer-lang-text">当前板块：英文润色</div>
+        <div id="footer-text">自动识别中英文 · 三种润色模式</div>
       </div>
     </footer>
   </div>
@@ -317,21 +390,59 @@
     const polishBtn = document.getElementById("polish-btn");
     const clearBtn = document.getElementById("clear-btn");
     const copyBtn = document.getElementById("copy-btn");
+    const exampleBtn = document.getElementById("example-btn");
+    const clearHistoryBtn = document.getElementById("clear-history-btn");
+
     const modeDescEl = document.getElementById("mode-desc");
+    const modeStatusEl = document.getElementById("mode-status");
+    const langStatusEl = document.getElementById("lang-status");
+    const detectedLangBadgeEl = document.getElementById("detected-lang-badge");
+
     const modeLightBtn = document.getElementById("mode-light");
     const modeDeepBtn = document.getElementById("mode-deep");
+    const modeAcademicBtn = document.getElementById("mode-academic");
 
-    const langCardEn = document.getElementById("lang-card-en");
-    const langCardZh = document.getElementById("lang-card-zh");
-
-    const langTitleEl = document.getElementById("lang-title");
     const inputSubtitleEl = document.getElementById("input-subtitle");
     const outputSubtitleEl = document.getElementById("output-subtitle");
-    const footerLangTextEl = document.getElementById("footer-lang-text");
+
+    const historyListEl = document.getElementById("history-list");
 
     const MAX_CHARS = 3000;
+    const HISTORY_KEY = "rinse_think_history_v1";
     let currentMode = "light";
-    let currentLang = "en";
+
+    function detectLanguage(text) {
+      const chineseRegex = /[\u4e00-\u9fa5]/;
+      return chineseRegex.test(text) ? "zh" : "en";
+    }
+
+    function getLangLabel(lang) {
+      return lang === "zh" ? "中文" : "English";
+    }
+
+    function updateDetectedLanguageUI(text) {
+      if (!text.trim()) {
+        langStatusEl.textContent = "等待输入";
+        detectedLangBadgeEl.textContent = "未识别";
+        inputSubtitleEl.textContent = "系统将自动识别中文或英文";
+        outputSubtitleEl.textContent = "输出优化后的内容";
+        return;
+      }
+
+      const lang = detectLanguage(text);
+
+      if (lang === "zh") {
+        langStatusEl.textContent = "检测到：中文";
+        detectedLangBadgeEl.textContent = "中文";
+        inputSubtitleEl.textContent = "已自动识别为中文内容";
+        outputSubtitleEl.textContent = "输出优化后的中文表达";
+      } else {
+        langStatusEl.textContent = "Detected: English";
+        detectedLangBadgeEl.textContent = "English";
+        inputSubtitleEl.textContent = "已自动识别为英文内容";
+        outputSubtitleEl.textContent = "Output polished English text";
+      }
+    }
 
     function updateCharCount() {
       const length = inputEl.value.length;
@@ -355,51 +466,130 @@
     function setMode(mode) {
       currentMode = mode;
 
-      if (mode === "deep") {
-        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
-        modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
+      modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
+      modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
+      modeAcademicBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
+
+      const activeClass = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
+
+      if (mode === "academic") {
+        modeAcademicBtn.className = activeClass;
+        modeDescEl.textContent = "当前为学术增强：进一步提升正式度、逻辑性和学术表达风格，更接近论文成稿语言。";
+        modeStatusEl.textContent = "学术增强";
+      } else if (mode === "deep") {
+        modeDeepBtn.className = activeClass;
         modeDescEl.textContent = "当前为深度润色：在不改变原意的前提下，显著提升语言质量、正式程度和整体表达效果。";
+        modeStatusEl.textContent = "深度润色";
       } else {
-        modeLightBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium bg-white text-slate-900 shadow-sm border border-slate-200";
-        modeDeepBtn.className = "mode-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-600";
+        modeLightBtn.className = activeClass;
         modeDescEl.textContent = "当前为轻度润色：尽量保留原意和原句式，主要优化语法、用词和细节表达。";
+        modeStatusEl.textContent = "轻度润色";
       }
     }
 
-    function resetLangCardStyles() {
-      const inactive = "lang-card text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition";
-      langCardEn.className = inactive;
-      langCardZh.className = inactive;
-    }
-
-    function setLang(lang) {
-      currentLang = lang;
-      resetLangCardStyles();
-
-      const active = "lang-card text-left rounded-2xl border border-[#d7e2ef] bg-[#eef4fa] p-5 shadow-sm transition";
-
-      if (lang === "zh") {
-        langCardZh.className = active;
-        langTitleEl.textContent = "当前板块：中文润色。适用于中文论文、摘要和学术段落的表达优化。";
-        inputSubtitleEl.textContent = "请输入或粘贴需要润色的中文内容";
-        outputSubtitleEl.textContent = "输出优化后的中文表达";
-        footerLangTextEl.textContent = "当前板块：中文润色";
-        inputEl.placeholder = "在此输入中文内容...";
-      } else {
-        langCardEn.className = active;
-        langTitleEl.textContent = "当前板块：英文润色。适用于英文论文、摘要和学术段落的语言优化。";
-        inputSubtitleEl.textContent = "请输入或粘贴需要润色的英文内容";
-        outputSubtitleEl.textContent = "输出优化后的英文表达";
-        footerLangTextEl.textContent = "当前板块：英文润色";
-        inputEl.placeholder = "在此输入英文内容...";
+    function loadHistory() {
+      try {
+        return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      } catch {
+        return [];
       }
     }
 
-    inputEl.addEventListener("input", updateCharCount);
+    function saveHistoryItem(item) {
+      const history = loadHistory();
+      history.unshift(item);
+      const trimmed = history.slice(0, 10);
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(trimmed));
+      renderHistory();
+    }
+
+    function clearHistory() {
+      localStorage.removeItem(HISTORY_KEY);
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const history = loadHistory();
+
+      if (!history.length) {
+        historyListEl.innerHTML = '<div class="text-sm text-slate-400">暂无历史记录</div>';
+        return;
+      }
+
+      historyListEl.innerHTML = history.map((item, index) => {
+        const previewInput = item.input.length > 60 ? item.input.slice(0, 60) + "..." : item.input;
+        const previewOutput = item.output.length > 70 ? item.output.slice(0, 70) + "..." : item.output;
+
+        return `
+          <button
+            type="button"
+            class="history-item w-full text-left rounded-2xl border border-slate-200 bg-slate-50 p-4 hover:bg-white hover:border-slate-300 transition"
+            data-index="${index}"
+          >
+            <div class="flex items-center justify-between gap-2">
+              <div class="text-xs font-medium text-[#173a63]">${item.lang === "zh" ? "中文" : "English"} · ${item.modeLabel}</div>
+              <div class="text-[11px] text-slate-400">${item.time}</div>
+            </div>
+            <div class="mt-2 text-xs text-slate-500">原文</div>
+            <div class="text-sm text-slate-700 leading-6 mt-1">${escapeHtml(previewInput)}</div>
+            <div class="mt-2 text-xs text-slate-500">结果</div>
+            <div class="text-sm text-slate-800 leading-6 mt-1">${escapeHtml(previewOutput)}</div>
+          </button>
+        `;
+      }).join("");
+
+      document.querySelectorAll(".history-item").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const history = loadHistory();
+          const item = history[Number(btn.dataset.index)];
+          if (!item) return;
+
+          inputEl.value = item.input;
+          resultEl.textContent = item.output;
+          updateCharCount();
+          updateDetectedLanguageUI(item.input);
+
+          if (item.mode === "academic") {
+            setMode("academic");
+          } else if (item.mode === "deep") {
+            setMode("deep");
+          } else {
+            setMode("light");
+          }
+
+          statusTextEl.textContent = "已载入历史";
+        });
+      });
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;");
+    }
+
+    function getModeLabel(mode) {
+      if (mode === "academic") return "学术增强";
+      if (mode === "deep") return "深度润色";
+      return "轻度润色";
+    }
+
+    inputEl.addEventListener("input", () => {
+      updateCharCount();
+      updateDetectedLanguageUI(inputEl.value);
+    });
+
     modeLightBtn.addEventListener("click", () => setMode("light"));
     modeDeepBtn.addEventListener("click", () => setMode("deep"));
-    langCardEn.addEventListener("click", () => setLang("en"));
-    langCardZh.addEventListener("click", () => setLang("zh"));
+    modeAcademicBtn.addEventListener("click", () => setMode("academic"));
+
+    exampleBtn.addEventListener("click", () => {
+      inputEl.value = "Cadmium is very harmful for plants, and it can badly influence plant growth and the balance of ecosystem.";
+      updateCharCount();
+      updateDetectedLanguageUI(inputEl.value);
+      statusTextEl.textContent = "已填充示例";
+    });
 
     polishBtn.addEventListener("click", async function () {
       const text = inputEl.value.trim();
@@ -420,6 +610,8 @@
         return;
       }
 
+      const lang = detectLanguage(text);
+
       polishBtn.disabled = true;
       statusTextEl.textContent = "润色中...";
       resultEl.textContent = "正在润色，请稍候...";
@@ -433,7 +625,7 @@
           body: JSON.stringify({
             text,
             mode: currentMode,
-            lang: currentLang
+            lang
           })
         });
 
@@ -446,8 +638,21 @@
           return;
         }
 
-        resultEl.textContent = data.polished || "";
+        const polished = data.polished || "";
+        resultEl.textContent = polished;
         statusTextEl.textContent = "已完成";
+
+        const now = new Date();
+        const time = `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+
+        saveHistoryItem({
+          input: text,
+          output: polished,
+          lang,
+          mode: currentMode,
+          modeLabel: getModeLabel(currentMode),
+          time
+        });
       } catch (error) {
         resultEl.textContent = "润色失败，请稍后重试。";
         resultEl.classList.add("text-red-600");
@@ -463,7 +668,10 @@
       resultEl.classList.remove("text-red-600");
       statusTextEl.textContent = "就绪";
       updateCharCount();
+      updateDetectedLanguageUI("");
     });
+
+    clearHistoryBtn.addEventListener("click", clearHistory);
 
     copyBtn.addEventListener("click", async function () {
       const text = resultEl.textContent.trim();
@@ -489,8 +697,9 @@
     });
 
     updateCharCount();
+    updateDetectedLanguageUI("");
     setMode("light");
-    setLang("en");
+    renderHistory();
   </script>
 </body>
 </html>
