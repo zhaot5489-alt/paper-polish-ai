@@ -21,6 +21,20 @@
         ></textarea>
       </div>
 
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">Polishing mode</label>
+        <div class="flex gap-6">
+          <label class="inline-flex items-center">
+            <input type="radio" name="mode" value="light" checked class="mr-2">
+            <span class="text-slate-700">Light polish</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="mode" value="deep" class="mr-2">
+            <span class="text-slate-700">Deep polish</span>
+          </label>
+        </div>
+      </div>
+
       <button
         id="polish-btn"
         class="px-6 py-3 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
@@ -32,7 +46,7 @@
         <label for="result-text" class="block text-sm font-medium text-slate-700 mb-2">Polished result</label>
         <div
           id="result-text"
-          class="w-full min-h-[200px] px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800"
+          class="w-full min-h-[200px] px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 whitespace-pre-wrap"
         ></div>
       </div>
     </div>
@@ -44,6 +58,7 @@
 
     polishBtn.addEventListener("click", async function () {
       const text = document.getElementById("input-text").value.trim();
+      const mode = document.querySelector('input[name="mode"]:checked').value;
 
       if (!text) {
         resultEl.textContent = "请输入需要润色的内容";
@@ -62,13 +77,13 @@
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ text })
+          body: JSON.stringify({ text, mode })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
-          resultEl.textContent = "润色失败，请稍后重试";
+          resultEl.textContent = data.error || "润色失败，请稍后重试";
           resultEl.classList.add("text-red-600");
           return;
         }
