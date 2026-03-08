@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
-      result: data?.content?.[0]?.text || "No response"
+      polished: data?.content?.[0]?.text || ""
     });
   } catch (error) {
     return res.status(500).json({
