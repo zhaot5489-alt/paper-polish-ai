@@ -10,20 +10,25 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Text is required" });
     }
 
-    const response = await fetch("http://1.95.142.151:3000/v1/messages", {
+    const response = await fetch("http://1.95.142.151:3000/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer 你的API密钥"
       },
       body: JSON.stringify({
         model: "claude-3-opus-20240229",
-        max_tokens: 1024,
         messages: [
           {
+            role: "system",
+            content: "You are an expert academic editor. Polish academic text to improve clarity, grammar, and scientific tone."
+          },
+          {
             role: "user",
-            content: `You are an expert academic editor. Polish the following academic text to improve clarity, grammar, and scientific tone.\n\n${text}`
+            content: text
           }
-        ]
+        ],
+        max_tokens: 1024
       })
     });
 
@@ -37,7 +42,7 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
-      polished: data?.content?.[0]?.text || ""
+      polished: data?.choices?.[0]?.message?.content || ""
     });
   } catch (error) {
     return res.status(500).json({
