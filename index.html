@@ -1,75 +1,173 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Academic Text Polishing</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 min-h-screen font-sans">
-  <div class="max-w-3xl mx-auto px-6 py-12">
-    <h1 class="text-2xl font-semibold text-slate-800 mb-8">Academic Text Polishing</h1>
-
-    <div class="space-y-6">
-      <div>
-        <label for="input-text" class="block text-sm font-medium text-slate-700 mb-2">Your text</label>
-        <textarea
-          id="input-text"
-          rows="8"
-          placeholder="Paste or type your academic text here..."
-          class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-        ></textarea>
+<body class="min-h-screen bg-slate-100 font-sans text-slate-800">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="px-6 py-5 border-b border-slate-200 bg-slate-50">
+        <h1 class="text-2xl font-semibold">Academic Text Polishing</h1>
+        <p class="mt-2 text-sm text-slate-600">
+          Improve academic writing with light polishing or deeper SCI-style refinement.
+        </p>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-slate-700 mb-2">Polishing mode</label>
-        <div class="flex gap-6">
-          <label class="inline-flex items-center">
-            <input type="radio" name="mode" value="light" checked class="mr-2">
-            <span class="text-slate-700">Light polish</span>
-          </label>
-          <label class="inline-flex items-center">
-            <input type="radio" name="mode" value="deep" class="mr-2">
-            <span class="text-slate-700">Deep polish</span>
-          </label>
+      <div class="p-6 space-y-6">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label for="input-text" class="block text-sm font-medium text-slate-700">
+              Your text
+            </label>
+            <span id="char-count" class="text-xs text-slate-500">0 / 3000</span>
+          </div>
+
+          <textarea
+            id="input-text"
+            rows="10"
+            placeholder="Paste or type your academic text here..."
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent resize-y"
+          ></textarea>
+
+          <p id="limit-tip" class="mt-2 text-xs text-slate-500">
+            Maximum 3000 characters.
+          </p>
         </div>
-      </div>
 
-      <button
-        id="polish-btn"
-        class="px-6 py-3 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        Polish Text
-      </button>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-3">
+            Polishing mode
+          </label>
 
-      <div>
-        <label for="result-text" class="block text-sm font-medium text-slate-700 mb-2">Polished result</label>
-        <div
-          id="result-text"
-          class="w-full min-h-[200px] px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 whitespace-pre-wrap"
-        ></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label class="cursor-pointer rounded-xl border border-slate-300 p-4 hover:border-slate-400 transition">
+              <div class="flex items-start gap-3">
+                <input type="radio" name="mode" value="light" checked class="mt-1">
+                <div>
+                  <div class="font-medium text-slate-800">Light polish</div>
+                  <div class="text-sm text-slate-600 mt-1">
+                    Preserve the original meaning and sentence structure as much as possible.
+                    Focus on grammar, wording, punctuation, and small stylistic improvements.
+                  </div>
+                </div>
+              </div>
+            </label>
+
+            <label class="cursor-pointer rounded-xl border border-slate-300 p-4 hover:border-slate-400 transition">
+              <div class="flex items-start gap-3">
+                <input type="radio" name="mode" value="deep" class="mt-1">
+                <div>
+                  <div class="font-medium text-slate-800">Deep polish</div>
+                  <div class="text-sm text-slate-600 mt-1">
+                    Rewrite more substantially for a concise, formal, publication-ready SCI style
+                    while preserving the original meaning.
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <button
+            id="polish-btn"
+            class="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            Polish Text
+          </button>
+
+          <button
+            id="clear-btn"
+            class="px-6 py-3 bg-white text-slate-700 font-medium rounded-xl border border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 transition"
+          >
+            Clear
+          </button>
+
+          <button
+            id="copy-btn"
+            class="px-6 py-3 bg-white text-slate-700 font-medium rounded-xl border border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 transition"
+          >
+            Copy Result
+          </button>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label for="result-text" class="block text-sm font-medium text-slate-700">
+              Polished result
+            </label>
+            <span id="status-text" class="text-xs text-slate-500">Ready</span>
+          </div>
+
+          <div
+            id="result-text"
+            class="w-full min-h-[220px] px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 whitespace-pre-wrap"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
+    const inputEl = document.getElementById("input-text");
+    const charCountEl = document.getElementById("char-count");
+    const limitTipEl = document.getElementById("limit-tip");
     const polishBtn = document.getElementById("polish-btn");
+    const clearBtn = document.getElementById("clear-btn");
+    const copyBtn = document.getElementById("copy-btn");
     const resultEl = document.getElementById("result-text");
+    const statusTextEl = document.getElementById("status-text");
+
+    const MAX_CHARS = 3000;
+
+    function updateCharCount() {
+      const length = inputEl.value.length;
+      charCountEl.textContent = `${length} / ${MAX_CHARS}`;
+
+      if (length > MAX_CHARS) {
+        charCountEl.classList.remove("text-slate-500");
+        charCountEl.classList.add("text-red-600");
+        limitTipEl.textContent = "Text exceeds the maximum length. Please shorten it to 3000 characters or fewer.";
+        limitTipEl.classList.remove("text-slate-500");
+        limitTipEl.classList.add("text-red-600");
+      } else {
+        charCountEl.classList.remove("text-red-600");
+        charCountEl.classList.add("text-slate-500");
+        limitTipEl.textContent = "Maximum 3000 characters.";
+        limitTipEl.classList.remove("text-red-600");
+        limitTipEl.classList.add("text-slate-500");
+      }
+    }
+
+    inputEl.addEventListener("input", updateCharCount);
+    updateCharCount();
 
     polishBtn.addEventListener("click", async function () {
-      const text = document.getElementById("input-text").value.trim();
+      const text = inputEl.value.trim();
       const mode = document.querySelector('input[name="mode"]:checked').value;
 
+      resultEl.classList.remove("text-red-600");
+
       if (!text) {
-        resultEl.textContent = "请输入需要润色的内容";
-        resultEl.classList.add("text-slate-500");
-        resultEl.classList.remove("text-red-600");
+        resultEl.textContent = "Please enter the text you want to polish.";
+        resultEl.classList.add("text-red-600");
+        statusTextEl.textContent = "No input";
         return;
       }
 
-      resultEl.classList.remove("text-slate-500", "text-red-600");
-      resultEl.textContent = "润色中...";
+      if (text.length > MAX_CHARS) {
+        resultEl.textContent = "Your text is too long. Please keep it within 3000 characters.";
+        resultEl.classList.add("text-red-600");
+        statusTextEl.textContent = "Too long";
+        return;
+      }
+
       polishBtn.disabled = true;
+      statusTextEl.textContent = "Polishing...";
+      resultEl.textContent = "Polishing your academic text...";
 
       try {
         const response = await fetch("/api/polish", {
@@ -83,17 +181,50 @@
         const data = await response.json();
 
         if (!response.ok) {
-          resultEl.textContent = data.error || "润色失败，请稍后重试";
+          resultEl.textContent = data.error || "Polishing failed. Please try again.";
           resultEl.classList.add("text-red-600");
+          statusTextEl.textContent = "Failed";
           return;
         }
 
         resultEl.textContent = data.polished || "";
-      } catch (err) {
-        resultEl.textContent = "润色失败，请稍后重试";
+        statusTextEl.textContent = "Done";
+      } catch (error) {
+        resultEl.textContent = "Polishing failed. Please try again.";
         resultEl.classList.add("text-red-600");
+        statusTextEl.textContent = "Error";
       } finally {
         polishBtn.disabled = false;
+      }
+    });
+
+    clearBtn.addEventListener("click", function () {
+      inputEl.value = "";
+      resultEl.textContent = "";
+      statusTextEl.textContent = "Ready";
+      resultEl.classList.remove("text-red-600");
+      updateCharCount();
+    });
+
+    copyBtn.addEventListener("click", async function () {
+      const text = resultEl.textContent.trim();
+
+      if (!text) {
+        statusTextEl.textContent = "Nothing to copy";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        const oldText = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        statusTextEl.textContent = "Copied";
+        setTimeout(() => {
+          copyBtn.textContent = oldText;
+          statusTextEl.textContent = "Done";
+        }, 1500);
+      } catch (error) {
+        statusTextEl.textContent = "Copy failed";
       }
     });
   </script>
