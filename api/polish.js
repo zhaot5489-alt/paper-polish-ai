@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { text, mode = "light", scene = "paper" } = req.body;
+    const { text, mode = "light", lang = "en" } = req.body;
 
     if (!text || !text.trim()) {
       return res.status(400).json({ error: "Text is required" });
@@ -16,29 +16,21 @@ export default async function handler(req, res) {
 
     let systemPrompt = "";
 
-    if (scene === "abstract") {
+    if (lang === "zh") {
       if (mode === "deep") {
         systemPrompt =
-          "You are an expert academic editor for SCI manuscripts. Revise the user's abstract in polished academic English. Make it concise, coherent, information-dense, and publication-ready. Improve logic, flow, clarity, and formal tone while preserving the original meaning. Return only the revised abstract text, with no explanations, notes, or headings.";
+          "你是一位资深学术编辑。请对用户提供的中文文本进行深度润色，在不改变原意的前提下，显著提升其学术性、凝练度、逻辑性和正式程度，使其更符合高水平学术写作风格。只返回润色后的文本，不要添加说明、标题、注释或任何额外内容。";
       } else {
         systemPrompt =
-          "You are an expert academic editor for SCI manuscripts. Lightly polish the user's abstract by correcting grammar, wording, punctuation, and minor stylistic issues while preserving the original meaning and structure as much as possible. Keep the abstract concise and natural in academic English. Return only the revised abstract text, with no explanations, notes, or headings.";
-      }
-    } else if (scene === "reviewer") {
-      if (mode === "deep") {
-        systemPrompt =
-          "You are an expert academic editor assisting with reviewer responses for SCI manuscripts. Rewrite the user's response in highly professional, polite, formal, and well-structured academic English. Make the tone respectful, clear, and persuasive while preserving the original meaning. Return only the revised response text, with no explanations, notes, or headings.";
-      } else {
-        systemPrompt =
-          "You are an expert academic editor assisting with reviewer responses for SCI manuscripts. Lightly polish the user's response by improving grammar, wording, punctuation, politeness, and clarity while preserving the original meaning and structure as much as possible. Return only the revised response text, with no explanations, notes, or headings.";
+          "你是一位资深学术编辑。请对用户提供的中文文本进行轻度润色，重点修改语病、措辞、标点和局部表达问题，同时尽量保留原意和原句式。只返回润色后的文本，不要添加说明、标题、注释或任何额外内容。";
       }
     } else {
       if (mode === "deep") {
         systemPrompt =
-          "You are an expert academic editor for SCI manuscripts. Rewrite the user's text in polished academic English with improved clarity, conciseness, coherence, and formality. Make the revision noticeably more refined and publication-ready, even if the original text is already understandable. Preserve the original meaning, but do not stay too close to the original wording. Return only the revised text, with no explanations, headings, or notes.";
+          "You are an expert academic editor for SCI manuscripts. Rewrite the user's English text in polished academic English with improved clarity, conciseness, coherence, and formality. Make the revision noticeably more refined and publication-ready while preserving the original meaning. Return only the revised text, with no explanations, headings, or notes.";
       } else {
         systemPrompt =
-          "You are an expert academic editor for SCI manuscripts. Lightly polish the user's text by correcting grammar, word choice, punctuation, and minor stylistic issues while preserving the original meaning and sentence structure as much as possible. Do not substantially rewrite the text unless necessary for correctness or natural academic English. Return only the revised text, with no explanations, headings, or notes.";
+          "You are an expert academic editor for SCI manuscripts. Lightly polish the user's English text by correcting grammar, word choice, punctuation, and minor stylistic issues while preserving the original meaning and sentence structure as much as possible. Return only the revised text, with no explanations, headings, or notes.";
       }
     }
 
@@ -51,7 +43,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "claude-3-opus-20240229",
         temperature: mode === "deep" ? 0.4 : 0.2,
-        max_tokens: 1024,
+        max_tokens: 1200,
         messages: [
           {
             role: "system",
